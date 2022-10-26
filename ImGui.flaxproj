@@ -1,0 +1,14 @@
+{
+	"Name": "ImGui",
+	"Version": "1.88",
+	"MinEngineVersion": "1.5",
+	"Company": "Omar Cornut",
+	"Copyright": "Copyright (c) 2014-2022 Omar Cornut",
+	"GameTarget": "ImGuiTarget",
+	"EditorTarget": "ImGuiEditorTarget",
+	"References": [
+		{
+			"Name": "$(EnginePath)/Flax.flaxproj"
+		}
+	]
+}
