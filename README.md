@@ -12,7 +12,6 @@ Minimum supported Flax version: `1.5`.
 
 2. Add reference to ImGui project in your game by modyfying your game `<game-project>.flaxproj` as follows:
 
-
 ```
 ...
 "References": [
@@ -25,7 +24,23 @@ Minimum supported Flax version: `1.5`.
 ]
 ```
 
-3. Test it out!
+3. Add reference to *ImGui* module in your game build script (eg. `Game.Build.cs`) as follows:
+
+```cs
+/// <inheritdoc />
+public override void Setup(BuildOptions options)
+{
+    base.Setup(options);
+
+    BuildNativeCode = false;
+    options.ScriptingAPI.IgnoreMissingDocumentationWarnings = true;
+
+    // Add reference to ImGui
+    options.PrivateDependencies.Add("ImGui");
+}
+```
+
+4. Test it out!
 
 Now you can use ImGui API directly in your game code within `Update` (scripts, plugins, anywhere within game logic update) as follows:
 
