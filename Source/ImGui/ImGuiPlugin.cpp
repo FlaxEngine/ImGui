@@ -150,7 +150,7 @@ void ImGuiPlugin::OnUpdate()
     }
     ImGui::NewFrame();
 
-    ImGui::ShowDemoWindow();
+    //ImGui::ShowDemoWindow();
 }
 
 void ImGuiPlugin::OnLateUpdate()
