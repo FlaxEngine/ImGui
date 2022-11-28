@@ -320,6 +320,12 @@ public:
         return ImGui::Begin(name.GetText(), &open, flags);
     }
 
+    // Begin window
+    API_FUNCTION() static bool Begin(const StringAnsiView& name, ImGuiWindowFlags flags = 0)
+    {
+        return ImGui::Begin(name.GetText(), nullptr, flags);
+    }
+
     // End window
     API_FUNCTION() static void End()
     {
