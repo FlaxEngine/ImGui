@@ -1,4 +1,4 @@
-﻿// Copyright (c) Wojciech Figat. All rights reserved.
+// Copyright (c) Wojciech Figat. All rights reserved.
 
 #pragma once
 
@@ -164,9 +164,9 @@ public:
     }
 
     // Checkbox.
-    API_FUNCTION() static bool Checkbox(const StringAnsiView& label, bool* v)
+    API_FUNCTION() static bool Checkbox(const StringAnsiView& label, API_PARAM(Ref) bool& v)
     {
-        return ImGui::Checkbox(label.GetText(), v);
+        return ImGui::Checkbox(label.GetText(), &v);
     }
 
     // Checkbox for flags value.
@@ -312,6 +312,94 @@ public:
         textUserData.Str = &str;
         return ImGui::InputTextMultiline(label.GetText(), (char*)str.GetText(), str.Length() + 1, *(ImVec2*)&size, flags, InputTextCallback, &textUserData);
     }
+
+public:
+    // Begin window
+    API_FUNCTION() static bool Begin(const StringAnsiView& name, API_PARAM(Ref) bool& open, ImGuiWindowFlags flags = 0)
+    {
+        return ImGui::Begin(name.GetText(), &open, flags);
+    }
+
+    // End window
+    API_FUNCTION() static void End()
+    {
+        ImGui::End();
+    }
+
+    // Begin child
+    API_FUNCTION() static bool BeginChild(const StringAnsiView& label, const Float2& size = Float2::Zero, bool border = false, ImGuiWindowFlags flags = 0)
+    {
+        return ImGui::BeginChild(label.GetText(), *(ImVec2*)&size, border, flags);
+    }
+
+    // End child
+    API_FUNCTION() static void EndChild()
+    {
+        ImGui::EndChild();
+    }
+
+public:
+    // Window Scrolling - Get Max X
+    API_FUNCTION() static float GetScrollMaxX()
+    {
+        return ImGui::GetScrollMaxX();
+    }
+
+    // Window Scrolling - Get Max Y
+    API_FUNCTION() static float GetScrollMaxY()
+    {
+        return ImGui::GetScrollMaxY();
+    }
+
+    // Window Scrolling - Get X
+    API_FUNCTION() static float GetScrollX()
+    {
+        return ImGui::GetScrollX();
+    }
+
+    // Window Scrolling - Get Y
+    API_FUNCTION() static float GetScrollY()
+    {
+        return ImGui::GetScrollY();
+    }
+
+    // Window Scrolling - Set From X Position
+    API_FUNCTION() static void SetScrollFromPosX(float value, float ratio)
+    {
+        ImGui::SetScrollFromPosX(value, ratio);
+    }
+
+    // Window Scrolling - Set From Y Position
+    API_FUNCTION() static void SetScrollFromPosY(float value, float ratio)
+    {
+        ImGui::SetScrollFromPosY(value, ratio);
+    }
+
+    // Window Scrolling - Set X Position Ratio
+    API_FUNCTION() static void SetScrollHereX(float ratio)
+    {
+        ImGui::SetScrollHereX(ratio);
+    }
+
+    // Window Scrolling - Set Y Position Ratio
+    API_FUNCTION() static void SetScrollHereY(float ratio)
+    {
+        ImGui::SetScrollHereY(ratio);
+    }
+
+    // Window Scrolling - Set X Position
+    API_FUNCTION() static void SetScrollX(float value)
+    {
+        ImGui::SetScrollX(value);
+    }
+
+    // Window Scrolling - Set Y Position
+    API_FUNCTION() static void SetScrollY(float value)
+    {
+        ImGui::SetScrollY(value);
+    }
+
+
 
 private:
     struct InputTextCallbackUserData
