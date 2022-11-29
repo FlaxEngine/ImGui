@@ -405,8 +405,6 @@ public:
         ImGui::SetScrollY(value);
     }
 
-
-
 private:
     struct InputTextCallbackUserData
     {

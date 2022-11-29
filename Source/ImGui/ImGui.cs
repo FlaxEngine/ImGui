@@ -164,7 +164,6 @@ public enum ImGuiWindowFlags
     /// </summary>
     NoInputs = ImGuiWindowFlags.NoMouseInputs | ImGuiWindowFlags.NoNavInputs | ImGuiWindowFlags.NoNavFocus,
 
-    // [Internal]
     /// <summary>
     /// [BETA] On child window: allow gamepad/keyboard navigation to cross over parent border to this child or between sibling child windows.
     /// </summary>
