@@ -391,7 +391,6 @@ partial class ImGui
     [Unmanaged]
     public static bool BeginChild(string label)
     {
-        //return BeginChild(label, Float2.Zero, false, 0);
-        return false;
+        return BeginChild(label, Float2.Zero, false, 0);
     }
 }
