@@ -6,6 +6,7 @@
 #include "Engine/Engine/Engine.h"
 #include "Engine/Engine/Screen.h"
 #include "Engine/Engine/Time.h"
+#include "Engine/Graphics/GPUDevice.h"
 #include "Engine/Graphics/RenderTask.h"
 #include "Engine/Graphics/Async/GPUTask.h"
 #include "Engine/Graphics/Textures/GPUTexture.h"
@@ -86,7 +87,7 @@ void ImGuiPlugin::Initialize()
     int width, height;
     unsigned char* pixels = nullptr;
     io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
-    _fontAtlasTexture = GPUTexture::New();
+    _fontAtlasTexture = GPUDevice::Instance->CreateTexture(TEXT("ImGui.FontAtlas"));
     if (_fontAtlasTexture->Init(GPUTextureDescription::New2D(width, height, 1, PixelFormat::R8G8B8A8_UNorm, GPUTextureFlags::ShaderResource)))
     {
         LOG(Error, "Failed to setup ImGui font atlas texture.");
