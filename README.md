@@ -8,6 +8,8 @@ Minimum supported Flax version: `1.5`.
 
 ## Installation
 
+0. Ensure to have proper system setup for C++ Scripting - see [Flax Docs](https://docs.flaxengine.com/manual/scripting/cpp/index.html)
+
 1. Clone repo into `<game-project>\Plugins\ImGui`
 
 2. Add reference to ImGui project in your game by modyfying your game `<game-project>.flaxproj` as follows:
