@@ -19,7 +19,7 @@
 
 struct ImGuiKeyMapping
 {
-    ImGuiKey_ ImGui;
+    ImGuiKey ImGui;
     KeyboardKeys Flax;
 };
 
@@ -56,7 +56,7 @@ ImGuiPlugin::ImGuiPlugin(const SpawnParams& params)
 #if USE_EDITOR
     _description.Description = TEXT("Dear ImGui plugin that adds debug GUI interface to game viewport.");
     _description.Author = TEXT("Omar Cornut");
-    _description.Version = Version(1, 88);
+    _description.Version = Version(1, 89, 9);
     _description.HomepageUrl = TEXT("https://github.com/ocornut/imgui");
     _description.RepositoryUrl = TEXT("https://github.com/FlaxEngine/ImGui");
 #endif
@@ -100,6 +100,7 @@ void ImGuiPlugin::Initialize()
     if (task)
         task->Start();
     io.Fonts->SetTexID(_fontAtlasTexture);
+
 }
 
 void ImGuiPlugin::Deinitialize()
