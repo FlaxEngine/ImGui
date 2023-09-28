@@ -15,6 +15,7 @@
 #include "Engine/Render2D/Render2D.h"
 #include "Engine/Scripting/Plugins/PluginManager.h"
 #include "ImGui/imgui.h"
+#include "ImGui/imgui_internal.h"
 
 struct ImGuiKeyMapping
 {
@@ -159,6 +160,8 @@ void ImGuiPlugin::OnLateUpdate()
     PROFILE_CPU();
 
     // End frame
+    if (ImGui::GetCurrentWindowRead() == nullptr)
+        return;
     ImGui::EndFrame();
 
     if (!IsReady())
