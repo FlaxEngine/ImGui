@@ -101,6 +101,8 @@ void ImGuiPlugin::Initialize()
         task->Start();
     io.Fonts->SetTexID(_fontAtlasTexture);
 
+    // Run initial frame
+    OnUpdate();
 }
 
 void ImGuiPlugin::Deinitialize()
