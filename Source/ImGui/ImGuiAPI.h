@@ -106,37 +106,37 @@ public:
     // Text.
     API_FUNCTION() static void Text(const StringAnsiView& text)
     {
-        ImGui::Text(text.GetText());
+        ImGui::Text("%s", text.GetText());
     }
 
     // Shortcut for PushStyleColor(ImGuiCol_Text, col); Text(text); PopStyleColor();
     API_FUNCTION() static void TextColored(const Color& col, const StringAnsiView& text)
     {
-        ImGui::TextColored(*(ImVec4*)&col, text.GetText());
+        ImGui::TextColored(*(ImVec4*)&col, "%s", text.GetText());
     }
 
     // Shortcut for PushStyleColor(ImGuiCol_Text, style.Colors[ImGuiCol_TextDisabled]); Text(text); PopStyleColor();
     API_FUNCTION() static void TextDisabled(const StringAnsiView& text)
     {
-        ImGui::TextDisabled(text.GetText());
+        ImGui::TextDisabled("%s", text.GetText());
     }
 
     // Shortcut for PushTextWrapPos(0.0f); Text(text); PopTextWrapPos();. Note that this won't work on an auto-resizing window if there's no other widgets to extend the window width, yoy may need to set a size using SetNextWindowSize().
     API_FUNCTION() static void TextWrapped(const StringAnsiView& text)
     {
-        ImGui::TextWrapped(text.GetText());
+        ImGui::TextWrapped("%s", text.GetText());
     }
 
     // Display text+label aligned the same way as value+label widgets.
     API_FUNCTION() static void LabelText(const StringAnsiView& label, const StringAnsiView& text)
     {
-        ImGui::LabelText(label.GetText(), text.GetText());
+        ImGui::LabelText(label.GetText(), "%s", text.GetText());
     }
 
     // Shortcut for Bullet()+Text().
     API_FUNCTION() static void BulletText(const StringAnsiView& text)
     {
-        ImGui::BulletText(text.GetText());
+        ImGui::BulletText("%s", text.GetText());
     }
 
 public:
