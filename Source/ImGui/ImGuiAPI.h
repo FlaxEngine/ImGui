@@ -418,7 +418,7 @@ public: // Trees
     /// </summary>
     API_FUNCTION() static bool TreeNode(const StringAnsiView& id, const StringAnsiView& label) 
     {
-        return ImGui::TreeNode(id.GetText(), label.GetText());
+        return ImGui::TreeNode(id.GetText(), "%s", label.GetText());
     }
 
     /// <summary>
@@ -434,7 +434,7 @@ public: // Trees
     /// </summary>
     API_FUNCTION() static bool TreeNodeEx(const StringAnsiView& id, ImGuiTreeNodeFlags flags, const StringAnsiView& label) 
     {
-        return ImGui::TreeNodeEx(id.GetText(), flags, label.GetText());
+        return ImGui::TreeNodeEx(id.GetText(), flags, "%s", label.GetText());
     }
     
     // Indent()+PushId(). Already called by TreeNode() when returning true, but you can call TreePush/TreePop yourself if desired.
@@ -844,7 +844,7 @@ public: // Item/Widgets Utilities and Query Functions
     // set a text-only tooltip. Often used after a ImGui::IsItemHovered() check. Override any previous call to SetTooltip().
     API_FUNCTION() static void SetTooltip(const StringAnsiView& fmt)
     {
-        ImGui::SetTooltip(fmt.GetText());
+        ImGui::SetTooltip("%s", fmt.GetText());
     }
 
 public:
