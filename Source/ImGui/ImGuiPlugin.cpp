@@ -132,7 +132,7 @@ void ImGuiPlugin::OnUpdate()
     const Float2 screenSize = Screen::GetSize();
     io.DisplaySize.x = screenSize.X;
     io.DisplaySize.y = screenSize.Y;
-    const bool hasFocus = Engine::HasGameViewportFocus();
+    const bool hasFocus = Engine::HasGameViewportFocus() && EnableInput && Enable;
     io.AddFocusEvent(hasFocus);
     if (hasFocus)
     {
@@ -167,14 +167,14 @@ void ImGuiPlugin::OnLateUpdate()
         return;
     ImGui::EndFrame();
 
-    if (!IsReady())
+    if (!IsReady() || !Enable)
         return;
     ImGui::Render();
 }
 
 void ImGuiPlugin::OnPostRender(GPUContext* context, RenderContext& renderContext)
 {
-    if (!IsReady())
+    if (!IsReady() || !Enable || !EnableDrawing)
         return;
     PROFILE_GPU_CPU("ImGui");
 

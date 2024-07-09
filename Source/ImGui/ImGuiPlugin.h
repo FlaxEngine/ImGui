@@ -25,6 +25,21 @@ public:
     /// </summary>
     API_PROPERTY() static ImGuiPlugin* GetInstance();
 
+    /// <summary>
+    /// Toggles debug interface logic. Allows to disable and hide ImGui.
+    /// </summary>
+    API_FIELD() bool Enable = true;
+
+    /// <summary>
+    /// Toggles inputs reading. Can be used to block user interaction with debug interface.
+    /// </summary>
+    API_FIELD() bool EnableInput = true;
+
+    /// <summary>
+    /// Toggles interface rendering in the game viewport. Can be used to hide debug UI while still processing it.
+    /// </summary>
+    API_FIELD() bool EnableDrawing = true;
+
 private:
     // [GamePlugin]
     void Initialize() override;
