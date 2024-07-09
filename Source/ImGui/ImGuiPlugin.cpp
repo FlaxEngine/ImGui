@@ -80,6 +80,7 @@ void ImGuiPlugin::Initialize()
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+    io.FontGlobalScale = Platform::GetDpiScale();
     Engine::Update.Bind<ImGuiPlugin, &ImGuiPlugin::OnUpdate>(this);
     Engine::LateUpdate.Bind<ImGuiPlugin, &ImGuiPlugin::OnLateUpdate>(this);
     MainRenderTask::Instance->PostRender.Bind<ImGuiPlugin, &ImGuiPlugin::OnPostRender>(this);
