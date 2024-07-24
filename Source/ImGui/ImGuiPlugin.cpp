@@ -128,6 +128,7 @@ void ImGuiPlugin::OnUpdate()
     PROFILE_CPU();
 
     // Begin frame
+    _activeFrame = true;
     ImGuiIO& io = ImGui::GetIO();
     io.DeltaTime = Time::Update.UnscaledDeltaTime.GetTotalSeconds();
     const Float2 screenSize = Screen::GetSize();
@@ -161,12 +162,15 @@ void ImGuiPlugin::OnUpdate()
 
 void ImGuiPlugin::OnLateUpdate()
 {
+    if (!_activeFrame)
+        return;
     PROFILE_CPU();
 
     // End frame
     if (ImGui::GetCurrentWindowRead() == nullptr)
         return;
     ImGui::EndFrame();
+    _activeFrame = false;
 
     if (!IsReady() || !Enable)
         return;

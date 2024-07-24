@@ -18,6 +18,7 @@ private:
     Array<Float2> _vertices;
     Array<Float2> _uvs;
     Array<Color> _colors;
+    bool _activeFrame = false;
 
 public:
     /// <summary>
