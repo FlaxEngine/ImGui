@@ -8,6 +8,7 @@
 #include "Engine/Engine/Time.h"
 #include "Engine/Graphics/GPUDevice.h"
 #include "Engine/Graphics/RenderTask.h"
+#include "Engine/Graphics/RenderContext.h"
 #include "Engine/Graphics/Async/GPUTask.h"
 #include "Engine/Graphics/Textures/GPUTexture.h"
 #include "Engine/Input/Input.h"
