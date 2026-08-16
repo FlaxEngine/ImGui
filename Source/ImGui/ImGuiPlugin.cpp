@@ -28,7 +28,7 @@ ImGuiKeyMapping KeyMappings[] =
 {
     { ImGuiKey_Tab, KeyboardKeys::Tab },
     { ImGuiKey_LeftArrow, KeyboardKeys::ArrowLeft },
-    { ImGuiKey_RightArrow, KeyboardKeys::ArrowLeft },
+    { ImGuiKey_RightArrow, KeyboardKeys::ArrowRight },
     { ImGuiKey_UpArrow, KeyboardKeys::ArrowUp },
     { ImGuiKey_DownArrow, KeyboardKeys::ArrowDown },
     { ImGuiKey_PageUp, KeyboardKeys::PageUp },
